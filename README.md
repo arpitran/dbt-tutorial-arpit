@@ -31,7 +31,7 @@ Installing packages\
 `pip install -r requirements.txt`
 
 
-Validating your warehouse credentials
+### Validating your warehouse credentials
 
 Use the debug command to check whether you can successfully connect to your warehouse. Simply run `dbt debug` from within a dbt project to test your connection.
 
@@ -44,7 +44,21 @@ To view your profiles.yml file, run:
 
 code C:\Users\ranaa\.dbt
 ```
+There are two ways to direct dbt to a different location for your profiles.yml file:
 
+1. Use the --profiles-dir option when executing a dbt command This option can be used as follows:
+
+```
+$ dbt run --profiles-dir path/to/directory
+```
+
+If using this method, the --profiles-dir option needs to be provided every time you run a dbt command.
+
+2. Use the DBT_PROFILES_DIR environment variable to change the default location Specifying this environment variable overrides the directory that dbt looks for your profiles.yml file in. You can specify this by running:
+
+```
+$ export DBT_PROFILES_DIR=path/to/directory
+```
 
 ### Using the starter project
 
