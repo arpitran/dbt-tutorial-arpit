@@ -2,3 +2,10 @@
 target/
 dbt_modules/
 logs/
+
+Environments
+.env
+dbt-env/
+
+Secrets
+profiles.yml
