@@ -1,7 +1,10 @@
 Welcome to your new dbt project!
 
 ### Installation
+You can install dbt Core on the command line by using one of these recommended methods
 
+
+#### Simple Installation
 ```bash
 $ python3 -m venv dbt-env               # create the environment
 
@@ -9,11 +12,25 @@ $ source dbt-env/bin/activate           # activate the virtual environment on ma
 
 $ python -m pip install --upgrade pip   # upgrade pip
 
-$ pip install dbt                       # install dbt
+$ pip install dbt-bigquery                       # install dbt-bigquery
 
-$ pip install --upgrade dbt             # upgrade dbt
+$ pip install --upgrade dbt-bigquert             # upgrade dbt-bigquery
 
 $ pip install -r requirements.txt       # Install dependencies
+```
+
+#### Intermediate Installation
+Prerequisites
+* Ensure you have pyenv installed
+* Ensure you have virtualenv installed
+
+
+```bash
+$ pyenv virtualenv 3.10.1 venv_dbt
+$ pyenv local venv_dbt
+$ pyenv activate venv_dbt
+$ pip install poetry==1.1.12
+$ poetry install
 ```
 
 ### Validating your warehouse credentials

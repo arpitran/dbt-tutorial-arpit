@@ -1,0 +1,10 @@
+[tool.poetry]
+name = "dbt-bigquery-template"
+version = "0.1.0"
+description = "bigquery dbt project template"
+authors = ["Arpit Rana"]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<=3.10.1"
+dbt-bigquery = "1.3.0"
+dbt-core = "1.3.0"
