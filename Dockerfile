@@ -11,6 +11,7 @@ RUN mkdir -p /opt/dbt-bigquery-template/logs
 COPY credentials /opt/dbt-bigquery-template/credentials
 WORKDIR /opt/dbt-bigquery-template
 
+RUN pip install --upgrade pip
 RUN pip install poetry==1.1.14
 
 ADD analysis /opt/dbt-bigquery-template/analysis
