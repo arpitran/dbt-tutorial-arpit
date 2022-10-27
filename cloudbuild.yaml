@@ -1,7 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/arpit-dbt-tutorial/dbt-bigquery-template:latest', '-t', 'gcr.io/$PROJECT_ID/arpit-dbt/tutorial/dbt-bigquery-template:$COMMIT_SHA', '.' ]
+  args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/github.com/arpitran/dbt-tutorial-arpit:latest', '-t', 'gcr.io/$PROJECT_ID/arpit-dbt/github.com/arpitran/dbt-tutorial-arpit:$COMMIT_SHA', '.' ]
 images:
-- 'gcr.io/$PROJECT_ID/arpit-dbt-tutorial/dbt-bigquery-template:latest'
-- 'gcr.io/$PROJECT_ID/arpit-dbt-tutorial/dbt-bigquery-template:$COMMIT_SHA'
+- 'gcr.io/$PROJECT_ID/github.com/arpitran/dbt-tutorial-arpit:latest'
+- 'gcr.io/$PROJECT_ID/github.com/arpitran/dbt-tutorial-arpit:$COMMIT_SHA'
 
