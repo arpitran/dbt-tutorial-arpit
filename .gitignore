@@ -8,6 +8,5 @@ Environments
 dbt-env/
 
 Secrets
-profiles.yml
 credentials/dbt-user.json
 .user.yml

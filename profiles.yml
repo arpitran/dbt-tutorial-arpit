@@ -1,0 +1,27 @@
+jaffle_shop:
+  target: prod
+  outputs:
+    prod:
+      type: bigquery
+      method: service-account
+      project: arpit-dbt
+      dataset: dbt_analytics
+      threads: 4
+      keyfile: credentials/dbt-user.json
+      timeout_seconds: 300
+      priority: interactive
+      retries: 3
+
+jaffle_shop:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: arpit-dbt
+      dataset: dbt_arana
+      threads: 4
+      keyfile: credentials/dbt-user.json
+      timeout_seconds: 300
+      priority: interactive
+      retries: 3
