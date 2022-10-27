@@ -1,13 +1,12 @@
 steps:
-  - name: 'gcr-io/cloud-builders/docker'
-    args: [
-      'build', 
-      -'t', 'us-west2-docker.pkg.dev/$PROJECT_ID/arpit-dbt-tutorial/dbt-bigquery-template:latest',
-      -'t', 'us-west2-docker.pkg.dev/$PROJECT_ID/arpit-dbt-tutorial/dbt-bigquery-template:$COMMIT_SHA',
-      -'t', 'us-west2-docker.pkg.dev/$PROJECT_ID/arpit-dbt-tutorial/dbt-bigquery-template:$BUILD_ID',
-      '.']
-    id: 'build-image-dbt-bigquery-template'
-    waitFor: ['-'] # The '-' indicates that this step begins immediately.
+- name: 'gcr-io/cloud-builders/docker'
+  args: ['build',
+  -'t', 'us-west2-docker.pkg.dev/$PROJECT_ID/arpit-dbt-tutorial/dbt-bigquery-template:latest',
+  -'t', 'us-west2-docker.pkg.dev/$PROJECT_ID/arpit-dbt-tutorial/dbt-bigquery-template:$COMMIT_SHA',
+  -'t', 'us-west2-docker.pkg.dev/$PROJECT_ID/arpit-dbt-tutorial/dbt-bigquery-template:$BUILD_ID',
+  '.']
+  id: 'build-image-dbt-bigquery-template'
+  waitFor: ['-'] # The '-' indicates that this step begins immediately.
 images:
 - 'us-west2-docker.pkg.dev/$PROJECT_ID/arpit-dbt-tutorial/dbt-bigquery-template:latest'
 - 'us-west2-docker.pkg.dev/$PROJECT_ID/arpit-dbt-tutorial/dbt-bigquery-template:$COMMIT_SHA'
