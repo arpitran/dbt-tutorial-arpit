@@ -16,7 +16,6 @@ RUN pip install poetry==1.1.14
 
 ADD analysis /opt/dbt-bigquery-template/analysis
 ADD data /opt/dbt-bigquery-template/data
-ADD dbt_packages /opt/dbt-bigquery-template/dbt_packages
 ADD models /opt/dbt-bigquery-template/models
 ADD macros /opt/dbt-bigquery-template/macros
 ADD snapshots /opt/dbt-bigquery-template/snapshots
