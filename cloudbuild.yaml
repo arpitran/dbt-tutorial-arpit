@@ -11,10 +11,10 @@ steps:
 
    # Check SQL Formatting
     - name: "${_DBT_APP_IMAGE}"
-     id: "sql-formatter"
-     waitFor: ["build-ci"]
-     entrypoint: "sqlfluff"
-     args: ["lint", "/models"]
+      id: "sql-formatter"
+      waitFor: ["build-ci"]
+      entrypoint: "sqlfluff"
+      args: ["lint", "/models"]
 
   #  # DBT test.
   #   - name: "${_DBT_APP_IMAGE}"
