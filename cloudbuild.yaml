@@ -1,13 +1,13 @@
 steps:
   # Build test image.
-    - name: "gcr.io/kaniko-project/executor:${_KANIKO_VERSION}"
-      id: "build-ci"
-      args:
-        - "--dockerfile=Dockerfile"
-        - "--destination=${_DBT_APP_IMAGE}"
-        - "--cache=true"
-        - "--cache-repo=${_DBT_APP_IMAGE}/cache"
-        - "--use-new-run"
+    # - name: "gcr.io/kaniko-project/executor:${_KANIKO_VERSION}"
+    #   id: "build-ci"
+    #   args:
+    #     - "--dockerfile=Dockerfile"
+    #     - "--destination=${_DBT_APP_IMAGE}"
+    #     - "--cache=true"
+    #     - "--cache-repo=${_DBT_APP_IMAGE}/cache"
+    #     - "--use-new-run"
     - name: bash
       script: |
         #!/bin/bash
