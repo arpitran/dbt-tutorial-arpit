@@ -14,7 +14,8 @@ steps:
       id: "sql-formatter"
       waitFor: ["build-ci"]
       entrypoint: 'bash'
-      args: ["ls"]
+      args:
+        - ls
     #  args: ["sqlfluff","lint", "/opt/dbt-bigquery-template/models"]
 
   #  # DBT test.
