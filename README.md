@@ -1,4 +1,4 @@
-Welcome to your new dbt project!
+Welcome to your new dbt bigquery template project!
 
 ### Installation
 You can install dbt Core on the command line by using one of these recommended methods
@@ -31,6 +31,7 @@ $ pyenv local venv_dbt
 $ pyenv activate venv_dbt
 $ pip install poetry==1.1.12
 $ poetry install
+$ poetry run dbt debug
 ```
 
 ### Validating your warehouse credentials
