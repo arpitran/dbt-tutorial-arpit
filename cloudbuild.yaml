@@ -11,11 +11,10 @@ steps:
 
    # Check SQL Formatting
     - name: "${_DBT_APP_IMAGE}"
-      id: "sql-formatter"
+      id: "sql-fluff"
       waitFor: ["build-ci"]
       entrypoint: 'bash'
-      args:
-        - ls
+      args: ["echo","hello world"]
     #  args: ["sqlfluff","lint", "/opt/dbt-bigquery-template/models"]
 
   #  # DBT test.
