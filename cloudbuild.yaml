@@ -1,7 +1,32 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/github.com/arpitran/dbt-tutorial-arpit:latest', '-t', 'gcr.io/$PROJECT_ID/arpit-dbt/github.com/arpitran/dbt-tutorial-arpit:$COMMIT_SHA', '.' ]
-images:
-- 'gcr.io/$PROJECT_ID/github.com/arpitran/dbt-tutorial-arpit:latest'
-- 'gcr.io/$PROJECT_ID/github.com/arpitran/dbt-tutorial-arpit:$COMMIT_SHA'
+  # Build test image.
+    - name: "gcr.io/kaniko-project/executor:${_KANIKO_VERSION}"
+      id: "build-ci"
+      args:
+        - "--dockerfile=Dockerfile"
+        - "--destination=${_DBT_APP_IMAGE}"
+        - "--cache=true"
+        - "--cache-repo=${_DBT_APP_IMAGE}/cache"
+        - "--use-new-run"
 
+   # Check SQL Formatting
+    - name: "${_DBT_APP_IMAGE}"
+     id: "sql-formatter"
+     waitFor: ["build-ci"]
+     entrypoint: bash
+     args: ["sqlfluff","lint", "/opt/dbt-bigquery-template/models"]
+
+   # DBT test.
+    - name: "${_DBT_APP_IMAGE}"
+      id: "dbt-debug"
+      waitFor: ["build-ci"]
+      entrypoint: bash
+      args: ["dbt" "debug"]
+
+substitutions:
+  _DBT_APP_IMAGE: "us-west2-docker.pkg.dev/arpit-dbt/arpit-dbt-tutorial/dbt-bigquery-tutorial:${COMMIT_SHA}" 
+  _KANIKO_VERSION: "v1.8.0"
+
+timeout: 1800s
+options:
+  logging: CLOUD_LOGGING_ONLY
