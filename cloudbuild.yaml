@@ -9,19 +9,19 @@ steps:
         - "--cache-repo=${_DBT_APP_IMAGE}/cache"
         - "--use-new-run"
 
-   # Check SQL Formatting
-    - name: "${_DBT_APP_IMAGE}"
-     id: "sql-formatter"
-     waitFor: ["build-ci"]
-     entrypoint: bash
-     args: ["sqlfluff","lint", "/opt/dbt-bigquery-template/models"]
+  #  # Check SQL Formatting
+  #   - name: "${_DBT_APP_IMAGE}"
+  #    id: "sql-formatter"
+  #    waitFor: ["build-ci"]
+  #    entrypoint: bash
+  #    args: ["sqlfluff","lint", "/opt/dbt-bigquery-template/models"]
 
-   # DBT test.
-    - name: "${_DBT_APP_IMAGE}"
-      id: "dbt-debug"
-      waitFor: ["build-ci"]
-      entrypoint: bash
-      args: ["dbt" "debug"]
+  #  # DBT test.
+  #   - name: "${_DBT_APP_IMAGE}"
+  #     id: "dbt-debug"
+  #     waitFor: ["build-ci"]
+  #     entrypoint: bash
+  #     args: ["dbt" "debug"]
 
 substitutions:
   _DBT_APP_IMAGE: "us-west2-docker.pkg.dev/arpit-dbt/arpit-dbt-tutorial/dbt-bigquery-tutorial:${COMMIT_SHA}" 
