@@ -24,7 +24,7 @@ steps:
   #     args: ["dbt" "debug"]
 
 substitutions:
-  _DBT_APP_IMAGE: "us-west2-docker.pkg.dev/arpit-dbt/arpit-dbt-tutorial/dbt-bigquery-tutorial:${COMMIT_SHA}" 
+  _DBT_APP_IMAGE: "us-west2-docker.pkg.dev/arpit-dbt/arpit-dbt-tutorial/dbt-bigquery-template:${COMMIT_SHA}" 
   _KANIKO_VERSION: "v1.8.0"
 
 timeout: 1800s
