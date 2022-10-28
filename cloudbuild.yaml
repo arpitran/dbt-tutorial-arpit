@@ -8,14 +8,18 @@ steps:
         - "--cache=true"
         - "--cache-repo=${_DBT_APP_IMAGE}/cache"
         - "--use-new-run"
+    - name: bash
+      script: |
+        #!/bin/bash
+        echo "Hello World"
     
   # Check SQL Formatting
-    - name: "${_DBT_APP_IMAGE}"
-      id: "sql-fluff"
-      waitFor: ["build-ci"]
-      entrypoint: bin/bash'
-      args:
-        - --version 
+    # - name: "${_DBT_APP_IMAGE}"
+    #   id: "sql-fluff"
+    #   waitFor: ["build-ci"]
+    #   entrypoint: bin/bash'
+    #   args:
+    #     - --version 
   #   #  args: ["sqlfluff","lint", "/opt/dbt-bigquery-template/models"]
 
   #  # DBT test.
