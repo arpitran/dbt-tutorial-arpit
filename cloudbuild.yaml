@@ -13,8 +13,8 @@ steps:
     - name: "${_DBT_APP_IMAGE}"
       id: "sql-fluff"
       waitFor: ["build-ci"]
-      entrypoint: 'bash'
-      args: ["echo","hello world"]
+      entrypoint: bin/bash'
+      args: ["-c","echo","hello world"]
     #  args: ["sqlfluff","lint", "/opt/dbt-bigquery-template/models"]
 
   #  # DBT test.
